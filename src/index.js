@@ -8,7 +8,11 @@ const API_KEY = 'AIzaSyAueTmTezw8CiDshB7fFqRCeRzFCLaInLk';
 
 // Create a new component. This should produce some HTML
 const App = function() {
-  return <div>Hi!</div>;
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 }
 
 //Take this component generated HTML & put it on the page (in the DOM)
