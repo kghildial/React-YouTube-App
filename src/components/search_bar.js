@@ -1,8 +1,8 @@
 //importing react ( A MUST!!! )
-import React from 'react';
+import React, { Component } from 'react';
 
 //ES6 class (like a JS object)
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   render() {
     return <input />;
   }
