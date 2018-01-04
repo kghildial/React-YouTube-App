@@ -18,11 +18,17 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = { videos: [] } // containing a list of videos
+    
+    this.state = {
+      videos: [], // containing a list of videos
+      selectedVideo: null // for the current video selection
+    };
 
     YTSearch({ key: API_KEY, term: 'surfboards'}, (videos) => {
-      this.setState({ videos }); // ES6 shorthand for this.setState({ videos: videos })
+      this.setState({
+        videos: videos,
+        selectedVideo: videos[0] // Set selected video as the first video of the list
+      }); 
     });
 
   }
@@ -30,7 +36,7 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <VideoDetail video={this.state.videos[0]}/>
+        <VideoDetail video={this.state.selectedVideo}/> {/* Passing the selected Video */}
         <VideoList videos={this.state.videos} /> {/* Passing videos from Parent Element(App) to Child Element (VideoList) */}
       </div>
     );
