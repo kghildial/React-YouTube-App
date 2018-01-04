@@ -40,9 +40,14 @@ class App extends Component {
   }
 
   render() {
+
+    //Search bar throttling using lodash
+    // videoSearch returns a function that can be called every 300 milisecs
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+    
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term) }/>
+        <SearchBar onSearchTermChange={videoSearch}/>
         <VideoDetail video={this.state.selectedVideo}/> {/* Passing the selected Video */}
         <VideoList 
           onVideoSelect={selectedVideo => this.setState({selectedVideo})} // Updates the Apps' state with a new video
