@@ -1,6 +1,10 @@
 import React from 'react';
 
 const VideoDetail = ({video}) => {
+  // to avoid rendering before search request completes
+  if(!video) {
+    return <div>Loading...</div>
+  }
   const videoId = video.id.videoId;
   const url = `https://www.youtube.com/embed/${videoId}`;
   // ES6:: String interpolation: exactly the same as 'https://www.youtube.com/embed/' + videoId; 
