@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <VideoList />
+        <VideoList videos={this.state.videos} /> {/* Passing videos from Parent Element(App) to Child Element (VideoList) */}
       </div>
     );
   }
