@@ -27,7 +27,7 @@ class App extends Component {
       selectedVideo: null // for the current video selection
     };
 
-    this.videoSearch('surfboards');
+    this.videoSearch('macbook pro');
   }
 
   videoSearch(term) {
@@ -44,7 +44,7 @@ class App extends Component {
     //Search bar throttling using lodash
     // videoSearch returns a function that can be called every 300 milisecs
     const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
-    
+
     return (
       <div>
         <SearchBar onSearchTermChange={videoSearch}/>
