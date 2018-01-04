@@ -37,7 +37,9 @@ class App extends Component {
       <div>
         <SearchBar />
         <VideoDetail video={this.state.selectedVideo}/> {/* Passing the selected Video */}
-        <VideoList videos={this.state.videos} /> {/* Passing videos from Parent Element(App) to Child Element (VideoList) */}
+        <VideoList 
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})} // Updates the Apps' state with a new video
+          videos={this.state.videos} /> {/* Passing videos from Parent Element(App) to Child Element (VideoList) */}
       </div>
     );
   }
